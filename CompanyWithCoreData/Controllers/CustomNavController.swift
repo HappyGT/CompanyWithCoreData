@@ -15,16 +15,12 @@ class CustomNavController: UINavigationController {
         setupNavigationStyle()
     }
     
-    fileprivate func setupNavigationStyle() {
+    private func setupNavigationStyle() {
         self.navigationBar.isTranslucent = false
         self.navigationBar.barTintColor = .lightRed
         self.navigationBar.tintColor = .white
         self.navigationBar.prefersLargeTitles = true
         self.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         self.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
     }
 }

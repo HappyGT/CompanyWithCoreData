@@ -24,7 +24,7 @@ class CompaniesController: UITableViewController {
         fetchCompanies()
     }
 
-    fileprivate func setupTableView() {
+    private func setupTableView() {
         tableView.backgroundColor = .darkBlue
         tableView.separatorColor = .white
         tableView.tableFooterView = UIView()
@@ -32,12 +32,12 @@ class CompaniesController: UITableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
     }
     
-    fileprivate func setupNavigation() {
+    private func setupNavigation() {
         navigationItem.title = "Companies"
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "plus").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleAddCompany))
     }
     
-    @objc fileprivate func handleAddCompany() {
+    @objc private func handleAddCompany() {
         let createCompanyController = CreateCompanyController()
         let navController = CustomNavController(rootViewController: createCompanyController)
         createCompanyController.delegate = self
@@ -45,7 +45,7 @@ class CompaniesController: UITableViewController {
         present(navController, animated: true, completion: nil)
     }
 
-    fileprivate func fetchCompanies() {
+    private func fetchCompanies() {
         let context = CoreDataManager.shared.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<Company>(entityName: "Company")
         

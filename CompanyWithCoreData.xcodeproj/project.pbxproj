@@ -49,6 +49,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		452EF4CB207E021400824F7F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				45778FBB207B73EE00A966B8 /* AppDelegate.swift */,
+				45778FC2207B73F100A966B8 /* Assets.xcassets */,
+				45778FBF207B73EE00A966B8 /* Main.storyboard */,
+				45778FC4207B73F100A966B8 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		45778FAF207B73ED00A966B8 = {
 			isa = PBXGroup;
 			children = (
@@ -72,10 +83,7 @@
 				45778FD6207B885B00A966B8 /* Views */,
 				45778FD0207B7A0800A966B8 /* Controllers */,
 				45778FCD207B786B00A966B8 /* Utils */,
-				45778FBB207B73EE00A966B8 /* AppDelegate.swift */,
-				45778FBF207B73EE00A966B8 /* Main.storyboard */,
-				45778FC2207B73F100A966B8 /* Assets.xcassets */,
-				45778FC4207B73F100A966B8 /* LaunchScreen.storyboard */,
+				452EF4CB207E021400824F7F /* Supporting Files */,
 				45778FC7207B73F100A966B8 /* Info.plist */,
 			);
 			path = CompanyWithCoreData;
@@ -84,7 +92,6 @@
 		45778FCD207B786B00A966B8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				452B322C207CB54000339007 /* CoreDataManager.swift */,
 				45778FCE207B788E00A966B8 /* Extensions.swift */,
 			);
 			path = Utils;
@@ -120,6 +127,7 @@
 		45778FD7207B8DF200A966B8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				452B322C207CB54000339007 /* CoreDataManager.swift */,
 				452B3227207C963A00339007 /* CompanyModels.xcdatamodeld */,
 			);
 			path = Models;

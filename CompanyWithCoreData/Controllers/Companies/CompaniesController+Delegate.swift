@@ -9,9 +9,6 @@
 import UIKit
 
 extension CompaniesController: CreateCompanyControllerDelegate {
-    
-    
-    
     //MARK:- CreateCompanyController Delegate
     func didAddCompany(company: Company) {
         companies.append(company)
@@ -92,7 +89,30 @@ extension CompaniesController: CreateCompanyControllerDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
         cell.backgroundColor = .tealColor
         
-        cell.textLabel?.text = companies[indexPath.row].name
+        let company = companies[indexPath.row]
+        if let name = company.name, let founded = company.founded {
+            
+            let dateFomatter = DateFormatter()
+            dateFomatter.dateFormat = "MMM dd, yyyy"
+            let dateFomtterString = dateFomatter.string(from: founded)
+            
+            cell.textLabel?.text = "\(name) - Founded: \(dateFomtterString)"
+
+        } else {
+            cell.textLabel?.text = company.name
+        }
+        cell.textLabel?.textColor = .white
+        
+        if let imageData = company.imageData {
+            cell.imageView?.image = UIImage(data: imageData)
+        } else {
+            cell.imageView?.image = #imageLiteral(resourceName: "select_photo_empty")
+        }
+        
+        
+        
+        
+        
         
         return cell
     }
