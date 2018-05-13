@@ -29,12 +29,14 @@ class CompaniesController: UITableViewController {
         tableView.separatorColor = .white
         tableView.tableFooterView = UIView()
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+        tableView.register(CompanyCell.self, forCellReuseIdentifier: cellId)
     }
     
     private func setupNavigation() {
         navigationItem.title = "Companies"
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "plus").withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleAddCompany))
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Reset", style: .plain, target: self, action: #selector(handleReset))
     }
     
     @objc private func handleAddCompany() {
@@ -45,6 +47,31 @@ class CompaniesController: UITableViewController {
         present(navController, animated: true, completion: nil)
     }
 
+    @objc private func handleReset() {
+        let context = CoreDataManager.shared.persistentContainer.viewContext
+        
+//        companies.forEach { (company) in
+//            context.delete(company)
+//        }
+        
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: Company.fetchRequest())
+        
+        do {
+            try context.execute(batchDeleteRequest)
+            
+            var indexPathsToRemove = [IndexPath]()
+            for (index, _) in companies.enumerated() {
+                let indexPath = IndexPath(row: index, section: 0)
+                indexPathsToRemove.append(indexPath)
+            }
+            companies.removeAll()
+            tableView.deleteRows(at: indexPathsToRemove, with: .left)
+
+        } catch let deleteErr {
+            print("Failed to delete object from Core Data: ", deleteErr)
+        }
+    }
+    
     private func fetchCompanies() {
         let context = CoreDataManager.shared.persistentContainer.viewContext
         let fetchRequest = NSFetchRequest<Company>(entityName: "Company")
@@ -57,9 +84,6 @@ class CompaniesController: UITableViewController {
         } catch let fetchErr {
             print("Failed to fetch companies: ", fetchErr)
         }
-        
-        
-        
     }
     
     
