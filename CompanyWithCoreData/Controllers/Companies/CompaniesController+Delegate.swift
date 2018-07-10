@@ -47,27 +47,28 @@ extension CompaniesController: CreateCompanyControllerDelegate {
     }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let deleteAction = UITableViewRowAction(style: .destructive, title: "Delete") { (_, indexPath) in
-            
-            let company = self.companies[indexPath.row]
-            
-            self.companies.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .fade)
-            
-            let context = CoreDataManager.shared.persistentContainer.viewContext
-            context.delete(company)
-            
-            do {
-                if context.hasChanges {
-                    try context.save()
-                }
-            } catch let saveErr {
-                print("Failed to delete company:", saveErr)
-            }
-        }
+        let deleteAction = UITableViewRowAction(style: .normal, title: "Delete", handler: deleteHandlerFunction)
         deleteAction.backgroundColor = .lightRed
         
         return [deleteAction]
+    }
+    
+    private func deleteHandlerFunction(action: UITableViewRowAction, indexPath: IndexPath) {
+        let company = self.companies[indexPath.row]
+        
+        self.companies.remove(at: indexPath.row)
+        self.tableView.deleteRows(at: [indexPath], with: .fade)
+        
+        let context = CoreDataManager.shared.persistentContainer.viewContext
+        context.delete(company)
+        
+        do {
+            if context.hasChanges {
+                try context.save()
+            }
+        } catch let saveErr {
+            print("Failed to delete company:", saveErr)
+        }
     }
     
     override func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

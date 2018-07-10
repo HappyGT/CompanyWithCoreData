@@ -39,7 +39,7 @@ class EmptyCompaniesView: UIView {
     
     private func setupUI() {
         addSubview(detailTitleLabel)
-        detailTitleLabel.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .zero, size: .init(width: 0, height: 50))
+        detailTitleLabel.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .zero, size: .init(width: 0, height: 0))
         
         addSubview(mainTitleLabel)
         mainTitleLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: detailTitleLabel.topAnchor, trailing: trailingAnchor, padding: .zero, size: .zero)

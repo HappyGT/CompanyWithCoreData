@@ -18,10 +18,10 @@ class CompaniesController: UITableViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
+        self.companies = CoreDataManager.shared.fetchCompanies()
+        
         setupTableView()
         setupNavigation()
-        
-        fetchCompanies()
     }
 
     private func setupTableView() {
@@ -49,11 +49,6 @@ class CompaniesController: UITableViewController {
 
     @objc private func handleReset() {
         let context = CoreDataManager.shared.persistentContainer.viewContext
-        
-//        companies.forEach { (company) in
-//            context.delete(company)
-//        }
-        
         let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: Company.fetchRequest())
         
         do {
@@ -71,26 +66,7 @@ class CompaniesController: UITableViewController {
             print("Failed to delete object from Core Data: ", deleteErr)
         }
     }
-    
-    private func fetchCompanies() {
-        let context = CoreDataManager.shared.persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<Company>(entityName: "Company")
-        
-        do {
-            let companies = try context.fetch(fetchRequest)
-           
-            self.companies = companies
-            self.tableView.reloadData()
-        } catch let fetchErr {
-            print("Failed to fetch companies: ", fetchErr)
-        }
-    }
-    
-    
-    
-    
-    
-    
+
     
 }
 

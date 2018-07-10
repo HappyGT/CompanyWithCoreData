@@ -97,12 +97,18 @@ class CreateCompanyController: UIViewController, UIImagePickerControllerDelegate
         return dp
     }()
 
+    //MARK:-
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .darkBlue
         
         setupNavigation()
         setupUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
     }
     
     private func setupNavigation() {
@@ -163,6 +169,8 @@ class CreateCompanyController: UIViewController, UIImagePickerControllerDelegate
         do {
             if context.hasChanges {
                 try context.save()
+                
+                // Success
                 dismiss(animated: true) {
                     guard let changedCompany = self.company else { return }
                     self.delegate?.didEditCompany(company: changedCompany)
@@ -173,6 +181,7 @@ class CreateCompanyController: UIViewController, UIImagePickerControllerDelegate
         }
     }
     
+    //MARK:-
     private func setupUI() {
         let backgroundView = LightBlueBackgroundView()
         view.addSubview(backgroundView)
