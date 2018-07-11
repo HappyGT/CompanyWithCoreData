@@ -114,12 +114,8 @@ class CreateCompanyController: UIViewController, UIImagePickerControllerDelegate
     private func setupNavigation() {
         navigationItem.title = company == nil ? "Create Company" : "Edit Company"
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(handleCancel))
+        setupCancelButtonInNavBar()
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(handleSave))
-    }
-    
-    @objc private func handleCancel() {
-        dismiss(animated: true, completion: nil)
     }
     
     @objc private func handleSave() {
@@ -183,9 +179,7 @@ class CreateCompanyController: UIViewController, UIImagePickerControllerDelegate
     
     //MARK:-
     private func setupUI() {
-        let backgroundView = LightBlueBackgroundView()
-        view.addSubview(backgroundView)
-        backgroundView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: nil, trailing: view.safeAreaLayoutGuide.trailingAnchor, padding: .zero, size: .init(width: 0, height: 350))
+        let backgroundView = setupLightBlueBackgroundView(height: 350)
         
         view.addSubview(companyImageView)
         companyImageView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: nil, bottom: nil, trailing: nil, padding: .init(top: 10, left: 0, bottom: 0, right: 0), size: .init(width: 100, height: 100))

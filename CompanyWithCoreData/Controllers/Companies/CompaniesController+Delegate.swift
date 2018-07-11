@@ -89,7 +89,12 @@ extension CompaniesController: CreateCompanyControllerDelegate {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let employeesController = EmployeesController()
+        let company = self.companies[indexPath.row]
         
+        employeesController.company = company
+        
+        navigationController?.pushViewController(employeesController, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
