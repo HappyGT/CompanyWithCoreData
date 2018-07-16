@@ -11,6 +11,7 @@
 		452B322D207CB54000339007 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452B322C207CB54000339007 /* CoreDataManager.swift */; };
 		452E46B72083123800CE1ACD /* EmptyCompaniesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452E46B62083123800CE1ACD /* EmptyCompaniesView.swift */; };
 		4530A0FE208A0521000CDDCB /* CompanyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4530A0FD208A0520000CDDCB /* CompanyCell.swift */; };
+		4535C99A20F808F700E8DB54 /* EmployeesController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4535C99920F808F700E8DB54 /* EmployeesController+Delegate.swift */; };
 		45368E7D20F5639D0080DDCD /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45368E7C20F5639D0080DDCD /* HeaderView.swift */; };
 		45368E7F20F564C40080DDCD /* EmployeesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45368E7E20F564C40080DDCD /* EmployeesController.swift */; };
 		45368E8120F566790080DDCD /* UIViewController+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45368E8020F566790080DDCD /* UIViewController+Helpers.swift */; };
@@ -31,6 +32,7 @@
 		452B322C207CB54000339007 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		452E46B62083123800CE1ACD /* EmptyCompaniesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCompaniesView.swift; sourceTree = "<group>"; };
 		4530A0FD208A0520000CDDCB /* CompanyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyCell.swift; sourceTree = "<group>"; };
+		4535C99920F808F700E8DB54 /* EmployeesController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmployeesController+Delegate.swift"; sourceTree = "<group>"; };
 		45368E7C20F5639D0080DDCD /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		45368E7E20F564C40080DDCD /* EmployeesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesController.swift; sourceTree = "<group>"; };
 		45368E8020F566790080DDCD /* UIViewController+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Helpers.swift"; sourceTree = "<group>"; };
@@ -68,6 +70,15 @@
 				45778FC4207B73F100A966B8 /* LaunchScreen.storyboard */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4535C99820F8054900E8DB54 /* Employees */ = {
+			isa = PBXGroup;
+			children = (
+				45368E7E20F564C40080DDCD /* EmployeesController.swift */,
+				4535C99920F808F700E8DB54 /* EmployeesController+Delegate.swift */,
+			);
+			path = Employees;
 			sourceTree = "<group>";
 		};
 		45368E8220F5679F0080DDCD /* CreateEmployee */ = {
@@ -120,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				45368E8220F5679F0080DDCD /* CreateEmployee */,
+				4535C99820F8054900E8DB54 /* Employees */,
 				45778FDA207B90B000A966B8 /* CreateCompany */,
 				45778FD5207B839700A966B8 /* Companies */,
 				45778FD1207B7A1D00A966B8 /* CustomNavController.swift */,
@@ -132,7 +144,6 @@
 			children = (
 				45778FBD207B73EE00A966B8 /* CompaniesController.swift */,
 				45778FD3207B835700A966B8 /* CompaniesController+Delegate.swift */,
-				45368E7E20F564C40080DDCD /* EmployeesController.swift */,
 			);
 			path = Companies;
 			sourceTree = "<group>";
@@ -238,6 +249,7 @@
 				45778FD2207B7A1D00A966B8 /* CustomNavController.swift in Sources */,
 				452B3229207C963A00339007 /* CompanyModels.xcdatamodeld in Sources */,
 				452E46B72083123800CE1ACD /* EmptyCompaniesView.swift in Sources */,
+				4535C99A20F808F700E8DB54 /* EmployeesController+Delegate.swift in Sources */,
 				45778FBE207B73EE00A966B8 /* CompaniesController.swift in Sources */,
 				45368E7F20F564C40080DDCD /* EmployeesController.swift in Sources */,
 				45778FCF207B788E00A966B8 /* Extensions.swift in Sources */,
