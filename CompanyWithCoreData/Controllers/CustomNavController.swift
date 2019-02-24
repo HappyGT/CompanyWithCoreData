@@ -20,7 +20,7 @@ class CustomNavController: UINavigationController {
         self.navigationBar.barTintColor = .lightRed
         self.navigationBar.tintColor = .white
         self.navigationBar.prefersLargeTitles = true
-        self.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-        self.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        self.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
     }
 }

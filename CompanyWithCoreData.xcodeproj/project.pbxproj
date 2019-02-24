@@ -16,6 +16,8 @@
 		45368E7F20F564C40080DDCD /* EmployeesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45368E7E20F564C40080DDCD /* EmployeesController.swift */; };
 		45368E8120F566790080DDCD /* UIViewController+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45368E8020F566790080DDCD /* UIViewController+Helpers.swift */; };
 		45368E8420F567BB0080DDCD /* CreateEmployeeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45368E8320F567BB0080DDCD /* CreateEmployeeController.swift */; };
+		4536960F2106840100E3121C /* CompaniesAutoUpdateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4536960E2106840100E3121C /* CompaniesAutoUpdateController.swift */; };
+		4549FB1E20FFF11D0091CC86 /* EmployeeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4549FB1D20FFF11D0091CC86 /* EmployeeType.swift */; };
 		45778FBC207B73EE00A966B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45778FBB207B73EE00A966B8 /* AppDelegate.swift */; };
 		45778FBE207B73EE00A966B8 /* CompaniesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45778FBD207B73EE00A966B8 /* CompaniesController.swift */; };
 		45778FC1207B73EE00A966B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45778FBF207B73EE00A966B8 /* Main.storyboard */; };
@@ -37,6 +39,8 @@
 		45368E7E20F564C40080DDCD /* EmployeesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesController.swift; sourceTree = "<group>"; };
 		45368E8020F566790080DDCD /* UIViewController+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Helpers.swift"; sourceTree = "<group>"; };
 		45368E8320F567BB0080DDCD /* CreateEmployeeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEmployeeController.swift; sourceTree = "<group>"; };
+		4536960E2106840100E3121C /* CompaniesAutoUpdateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesAutoUpdateController.swift; sourceTree = "<group>"; };
+		4549FB1D20FFF11D0091CC86 /* EmployeeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeType.swift; sourceTree = "<group>"; };
 		45778FB8207B73EE00A966B8 /* CompanyWithCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CompanyWithCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45778FBB207B73EE00A966B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45778FBD207B73EE00A966B8 /* CompaniesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesController.swift; sourceTree = "<group>"; };
@@ -144,6 +148,7 @@
 			children = (
 				45778FBD207B73EE00A966B8 /* CompaniesController.swift */,
 				45778FD3207B835700A966B8 /* CompaniesController+Delegate.swift */,
+				4536960E2106840100E3121C /* CompaniesAutoUpdateController.swift */,
 			);
 			path = Companies;
 			sourceTree = "<group>";
@@ -163,6 +168,7 @@
 			children = (
 				452B322C207CB54000339007 /* CoreDataManager.swift */,
 				452B3227207C963A00339007 /* CompanyModels.xcdatamodeld */,
+				4549FB1D20FFF11D0091CC86 /* EmployeeType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -207,6 +213,7 @@
 				TargetAttributes = {
 					45778FB7207B73EE00A966B8 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -246,6 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4536960F2106840100E3121C /* CompaniesAutoUpdateController.swift in Sources */,
 				45778FD2207B7A1D00A966B8 /* CustomNavController.swift in Sources */,
 				452B3229207C963A00339007 /* CompanyModels.xcdatamodeld in Sources */,
 				452E46B72083123800CE1ACD /* EmptyCompaniesView.swift in Sources */,
@@ -261,6 +269,7 @@
 				4530A0FE208A0521000CDDCB /* CompanyCell.swift in Sources */,
 				45778FD4207B835700A966B8 /* CompaniesController+Delegate.swift in Sources */,
 				45778FBC207B73EE00A966B8 /* AppDelegate.swift in Sources */,
+				4549FB1E20FFF11D0091CC86 /* EmployeeType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,7 +422,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.naver.lywzz6342.CompanyWithCoreData;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -431,7 +440,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.naver.lywzz6342.CompanyWithCoreData;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

@@ -11,7 +11,15 @@ import CoreData
 
 class EmployeesController: UITableViewController {
     var company: Company?
+    var allEmployees = [[Employee]]()
+    
     var employees = [Employee]()
+    var employeeTypes = [
+        EmployeeType.Executive.rawValue,
+        EmployeeType.SeniorManagement.rawValue,
+        EmployeeType.Staff.rawValue
+    ]
+    
     
     let cellId = "cellId"
 
@@ -31,23 +39,14 @@ class EmployeesController: UITableViewController {
         navigationItem.title = company?.name
     }
     
-    private func fetchEmployees() {
-//        let context = CoreDataManager.shared.persistentContainer.viewContext
-//
-//        let request = NSFetchRequest<Employee>(entityName: "Employee")
-//
-//
-//        do {
-//            let employees = try context.fetch(request)
-//            self.employees = employees
-//
-//            employees.forEach { print("name:", $0.name ?? "") }
-//
-//        } catch let err {
-//            print("Failed to fetch employees ", err)
-//        }
+    func fetchEmployees() {
+
         guard let companyEmployees = company?.employees?.allObjects as? [Employee] else { return }
-        self.employees = companyEmployees
+        
+        allEmployees = []
+        employeeTypes.forEach { (employeeType) in
+            allEmployees.append(companyEmployees.filter{ $0.type == employeeType })
+        }
     }
 
     @objc private func handelAdd() {

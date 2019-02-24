@@ -63,8 +63,8 @@ class CreateCompanyController: UIViewController, UIImagePickerControllerDelegate
         imagePickerController.navigationBar.barTintColor = .lightRed
         imagePickerController.navigationBar.tintColor = .white
         imagePickerController.navigationBar.prefersLargeTitles = true
-        imagePickerController.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-        imagePickerController.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        imagePickerController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        imagePickerController.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         
         return imagePickerController
     }
@@ -133,7 +133,7 @@ class CreateCompanyController: UIViewController, UIImagePickerControllerDelegate
         newCompany.setValue(nameTextField.text, forKey: "name")
         newCompany.setValue(foundedDatePicker.date, forKey: "founded")
         if let companyImage = companyImageView.image {
-            if let imageData = UIImageJPEGRepresentation(companyImage, 0.8) {
+            if let imageData = companyImage.jpegData(compressionQuality: 0.8) {
                 newCompany.setValue(imageData, forKey: "imageData")
             }
         }
@@ -157,7 +157,7 @@ class CreateCompanyController: UIViewController, UIImagePickerControllerDelegate
         company?.name = nameTextField.text
         company?.founded = foundedDatePicker.date
         if let companyImage = companyImageView.image {
-            if let imageData = UIImageJPEGRepresentation(companyImage, 0.8) {
+            if let imageData = companyImage.jpegData(compressionQuality: 0.8) {
                 company?.imageData = imageData
             }
         }
@@ -197,10 +197,13 @@ class CreateCompanyController: UIViewController, UIImagePickerControllerDelegate
     }
     
     //MARK:- ImagePickerController Delegate
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let editedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
+        if let editedImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.editedImage)] as? UIImage {
             companyImageView.image = editedImage
-        } else if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+        } else if let originalImage = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage {
             companyImageView.image = originalImage
         }
         setupCircularImageViewStyle()
@@ -211,4 +214,14 @@ class CreateCompanyController: UIViewController, UIImagePickerControllerDelegate
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
 }

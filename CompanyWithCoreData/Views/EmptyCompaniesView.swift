@@ -11,9 +11,9 @@ import UIKit
 class EmptyCompaniesView: UIView {
     private let mainTitleLabel: UILabel = {
         let label = UILabel()
-        let attributedString = NSMutableAttributedString(string: "No companies available", attributes: [NSAttributedStringKey.foregroundColor : UIColor.white,
-            NSAttributedStringKey.font : UIFont.systemFont(ofSize: 18, weight: .bold),
-            NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle.rawValue])
+        let attributedString = NSMutableAttributedString(string: "No companies available", attributes: [NSAttributedString.Key.foregroundColor : UIColor.white,
+            NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18, weight: .bold),
+            NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue])
         label.attributedText = attributedString
         label.textAlignment = .center
       

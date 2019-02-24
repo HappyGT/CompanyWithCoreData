@@ -47,6 +47,17 @@ class CreateEmployeeController: UIViewController {
         return textField
     }()
     
+    private let employeeTypeSegmentedControl: UISegmentedControl = {
+        let types = [EmployeeType.Executive.rawValue,
+                     EmployeeType.SeniorManagement.rawValue,
+                     EmployeeType.Staff.rawValue]
+        let sc = UISegmentedControl(items: types)
+        sc.selectedSegmentIndex = 0
+        
+        sc.tintColor = .darkBlue
+        return sc
+    }()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,6 +85,8 @@ class CreateEmployeeController: UIViewController {
         view.addSubview(birthdayTextField)
         birthdayTextField.anchor(top: birthdayLabel.topAnchor, leading: birthdayLabel.trailingAnchor, bottom: nil, trailing: view.safeAreaLayoutGuide.trailingAnchor, padding: .zero, size: .init(width: 0, height: 50))
         
+        view.addSubview(employeeTypeSegmentedControl)
+        employeeTypeSegmentedControl.anchor(top: birthdayLabel.bottomAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: nil, trailing: view.safeAreaLayoutGuide.trailingAnchor, padding: .init(top: 5, left: 16, bottom: 0, right: 16), size: .init(width: 0, height: 34))
         
         
     }
@@ -94,8 +107,11 @@ class CreateEmployeeController: UIViewController {
             return
         }
         
+        guard let employeeType = employeeTypeSegmentedControl.titleForSegment(at: employeeTypeSegmentedControl.selectedSegmentIndex) else { return }
+        
         let tuple = CoreDataManager.shared.createEmployee(employeeName: nameTextField.text,
                                                           birthdayDate: birthdayDate,
+                                                          employeeType: employeeType,
                                                           company: company)
         
         guard let employee = tuple.0 else { return }
